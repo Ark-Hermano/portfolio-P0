@@ -84,11 +84,9 @@ function App() {
 
         <div className='jobs'>
 
-
         </div>
         <div className='certifications'></div>
         <div className='educational-institutions'></div>
-
       </div>
     </div>
   )
