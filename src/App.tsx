@@ -44,10 +44,8 @@ function App() {
         </div>
 
         <div className='highlighted'>
-
           <div className="content">
             <div className="main-label">Main Personal Projects and Jobs</div>
-
             <ul className="project-list">
               <li className="project">
                 <a>
