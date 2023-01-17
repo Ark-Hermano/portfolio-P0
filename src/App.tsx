@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="background">
       <div>
-
         <div className="head">
           <div className="content">
             <div className="nav">
