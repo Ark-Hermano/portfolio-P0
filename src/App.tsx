@@ -5,15 +5,24 @@ import { apiGitHub } from './infra/github'
 
 function App() {
 
+  const [repos, setRepos] = useState<any[]>([])
+
   useEffect(() => {
 
-    apiGitHub.get(`/users/${'Ark-Hermano'}/repos`)
+    const getData = async () => {
+      const { data } = await apiGitHub.get(`/users/${'Ark-Hermano'}/repos`)
+      data.shift()
+      setRepos(data.filter((repo: any) => !repo.private))
+    }
+
+    getData()
 
   }, [])
 
+
   return (
-    <div className="background">
-      <div>
+    <main>
+      {/* <div>
         <div className="head">
           <div className="content">
             <div className="nav">
@@ -87,8 +96,44 @@ function App() {
         </div>
         <div className='certifications'></div>
         <div className='educational-institutions'></div>
-      </div>
-    </div>
+      </div> */}
+
+      <section>
+        <div className='repos'>
+          <div className='repo-grid'>
+            {repos.map((repo) => (
+              <div className='repo-card'>
+                <div className='repo-card__content'>
+                  <a target={'_blank'} href={repo.html_url}>
+                    <div className='repo-card__image'></div>
+                    <div className='repo-card__name'>{repo.name}</div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className='certifications'>
+          <div className='certification-grid'>
+            {certifications.map((certification) => (
+              <div className='certification-card'>
+                <div className='certification-card__content'>
+                  <a target={'_blank'} href={certification.html_url}>
+                    <div className='certification-card__image'></div>
+                    <div className='certification-card__name'>{certification.name}</div>
+                    <div className='certification-card__name'>{certification.name}</div>
+                    <div className='certification-card__name'>{certification.name}</div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
 

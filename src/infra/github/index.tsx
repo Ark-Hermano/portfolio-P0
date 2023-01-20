@@ -6,6 +6,6 @@ const token = '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'
 export const apiGitHub = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
-    Authorization: `Bearer ${token}`
+    Authorization: `${token}`
   }
 });
