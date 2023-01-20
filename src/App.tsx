@@ -6,6 +6,7 @@ import { apiGitHub } from './infra/github'
 function App() {
 
   const [repos, setRepos] = useState<any[]>([])
+  const [certifications, setCertifications] = useState<any[]>([])
 
   useEffect(() => {
 
@@ -13,6 +14,13 @@ function App() {
       const { data } = await apiGitHub.get(`/users/${'Ark-Hermano'}/repos`)
       data.shift()
       setRepos(data.filter((repo: any) => !repo.private))
+
+
+      setCertifications([
+        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
+        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
+        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } }
+      ])
     }
 
     getData()
@@ -124,8 +132,9 @@ function App() {
                   <a target={'_blank'} href={certification.html_url}>
                     <div className='certification-card__image'></div>
                     <div className='certification-card__name'>{certification.name}</div>
-                    <div className='certification-card__name'>{certification.name}</div>
-                    <div className='certification-card__name'>{certification.name}</div>
+                    <div className='certification-card__skill'>{certification.skill}</div>
+                    <div className='certification-card__date'>{certification.created_at}</div>
+                    <div className='certification-card__foundation'>{certification.foundation.name}</div>
                   </a>
                 </div>
               </div>

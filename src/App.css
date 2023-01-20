@@ -60,6 +60,10 @@ section .certifications .certification-grid .certification-card__content {
   padding: 15px;
 }
 
+
+.certification-card__skill,
+.certification-card__date,
+.certification-card__foundation,
 .certification-card__name {
   color: #fff;
 }
