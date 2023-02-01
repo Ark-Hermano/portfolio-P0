@@ -6,6 +6,7 @@ import { apiGitHub } from './infra/github'
 function App() {
 
   const [repos, setRepos] = useState<any[]>([])
+  const [repoGridPageIndex, setRepoGridPageIndex] = useState<any>(1)
   const [certifications, setCertifications] = useState<any[]>([])
 
   useEffect(() => {
@@ -27,6 +28,14 @@ function App() {
 
   }, [])
 
+  const handleNext = () => {
+    setRepoGridPageIndex(repoGridPageIndex + 1)
+  }
+
+  const handlePrev = () => {
+    setRepoGridPageIndex(repoGridPageIndex - 1)
+
+  }
 
   return (
     <main>
@@ -109,7 +118,7 @@ function App() {
       <section>
         <div className='repos'>
           <div className='repo-grid'>
-            {repos.map((repo) => (
+            {repos.slice(0 * repoGridPageIndex, 6 * repoGridPageIndex).map((repo) => (
               <div className='repo-card'>
                 <div className='repo-card__content'>
                   <div className='repo-card__image'>
@@ -119,12 +128,25 @@ function App() {
                   </div>
                   <div className='repo-card__desc'>
                     <a target={'_blank'} href={repo.html_url}>
-                      {repo.name}
+                      <h2 className='title'>{repo.name}</h2>
+                      <span className='desc'>{repo.description}</span>
                     </a>
+
+                    <div className='topics'>
+                      {repo.topics.map((topic: string) => (
+                        <div className='topic'>{topic}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
+
+
+          </div>
+          <div className='repo-grid__options'>
+            <button onClick={() => handleNext()} >{'<-'}</button>
+            <button onClick={() => handlePrev()} >{'->'}</button>
           </div>
         </div>
       </section>
