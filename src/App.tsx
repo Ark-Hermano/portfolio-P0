@@ -19,9 +19,9 @@ function App() {
 
 
       setCertifications([
-        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
-        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
-        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } }
+        { name: "Formação Acessibilidade Web", credential_url: 'https://cursos.alura.com.br/degree/certificate/c4ba399a-0d38-410f-b62d-c3ec83655bab', credential: 'c4ba399a-0d38-410f-b62d-c3ec83655bab', created_at: "2022-10-12", foundation: { name: "Alura" } },
+        { name: "Formação React Native", credential_url: 'https://cursos.alura.com.br/degree/certificate/60825e62-355d-41f6-a9ca-e9b5f4d24e5a', credential: '60825e62-355d-41f6-a9ca-e9b5f4d24e5a', created_at: "2022-09-12", foundation: { name: "Alura" } },
+        { name: "Formação React com TypeScript", credential_url: 'https://cursos.alura.com.br/degree/certificate/6a5342c7-9dd3-47cd-97b8-d36e131e2ba4', credential: '6a5342c7-9dd3-47cd-97b8-d36e131e2ba4', created_at: "2022-09-12", foundation: { name: "Alura" } }
       ])
     }
 
@@ -201,7 +201,7 @@ function App() {
                       Código da credencial {certification.credential}
                     </div>
                     <div className='certification-card__show__credential'>
-                      <a href=''>
+                      <a target={'__blank'} href={certification.credential_url}>
                         <span>Exibir credencial</span>
                         <div className='anchor-icon'>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
