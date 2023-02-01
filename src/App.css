@@ -6,8 +6,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
   font-family: sans-serif;
+  min-height: 100vw;
 }
 
 section .repos .repo-grid {
@@ -106,5 +107,50 @@ section .repos .repo-grid .repo-card .repo-card__image a {
 
 section .repos .repo-grid .repo-card .repo-card__image {
   max-height: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+
+.repo-card__desc span.desc {
+  color: #a4a4a4;
+}
+
+.repo-card__desc .topics .topic {
+  display: inline-block;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: var(--base-text-weight-medium, 500);
+  line-height: 18px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 22px;
+  color: #58a6ff;
+  background-color: rgba(56, 139, 253, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: 0.2s;
+
+}
+
+.repo-card__desc .topics .topic:hover {
+  background: #1f6feb;
+  color: #fff;
+  transition: 0.2s;
+
+}
+
+.repo-card__desc .topics {
+  gap: 10px;
+  display: flex;
+  margin: 10px 0px;
+}
+
+section .repos .repo-grid .repo-card:hover {
+  width: 350px;
+}
+
+section .repos .repo-grid .repo-card {
+  transition: 0.5s;
 }
