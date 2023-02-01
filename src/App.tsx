@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { apiGitHub } from './infra/github'
+import { TbChevronLeft, TbChevronRight } from 'react-icons/tb';
 
 function App() {
 
@@ -115,6 +116,14 @@ function App() {
         <div className='educational-institutions'></div>
       </div> */}
 
+      <section className='head'>
+        <div className='content'>
+          <div className='rotate'>
+            <img className="rotate-object" src='./media/hahaha.svg' />
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className='repos'>
           <div className='repo-grid'>
@@ -145,11 +154,19 @@ function App() {
 
           </div>
           <div className='repo-grid__options'>
-            <button onClick={() => handlePrev()} >{'<-'}</button>
-            <div>
-              {repoGridPageIndex}
+            <button disabled={!!!repoGridPageIndex} onClick={() => handlePrev()} >
+              <span><TbChevronLeft /></span>
+            </button>
+            <div className='page-indexes'>
+              {Array.from({ length: repos.length / 6 }, () => '').map((_, index) => (
+                <div className={+ index === repoGridPageIndex ? 'selected index' : 'index'}>
+                  <span>{index + 1}</span>
+                </div>
+              ))}
             </div>
-            <button onClick={() => handleNext()} >{'->'}</button>
+            <button disabled={(6 * (repoGridPageIndex + 1)) === repos.length} onClick={() => handleNext()}>
+              <span><TbChevronRight /></span>
+            </button>
           </div>
         </div>
       </section>

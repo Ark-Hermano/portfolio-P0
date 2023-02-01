@@ -73,7 +73,7 @@ section .certifications .certification-grid .certification-card a {
   text-decoration: none;
 }
 
-main {
+main>section {
   max-width: 1200px;
   margin: auto;
 }
@@ -84,10 +84,7 @@ section .repos .repo-grid {
   justify-content: center;
 }
 
-main {
-  max-width: 1200px;
-  margin: auto;
-}
+
 
 section .repos .repo-grid .repo-card a {
   color: #fff;
@@ -158,4 +155,100 @@ section .repos .repo-grid .repo-card {
 h2.title {
   white-space: pre-wrap;
   overflow-wrap: break-word;
+}
+
+.repo-grid__options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.certifications {
+  display: flex;
+  justify-content: center;
+}
+
+.repo-grid__options button {
+  background: #3c3a3a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.repo-grid__options button span {
+  font-size: 20px;
+  display: flex;
+}
+
+
+.repo-grid__options button:hover {
+  background: #161616;
+
+}
+
+
+.repo-grid__options .page-indexes {
+  display: flex;
+  gap: 5px;
+}
+
+.repo-grid__options .page-indexes .index:hover {
+  background: #161616;
+
+}
+
+.repo-grid__options .page-indexes .index {
+  background: #3c3a3a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected {
+  background: #161616 !important;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-object {
+  animation: rotate 360s linear infinite;
+}
+
+main>section .content {
+  display: flex;
+  justify-content: center;
+  /* max-width: 1200px; */
+}
+
+.rotate {
+  max-width: 700px;
+  height: 700px;
+}
+
+main>section.head {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: none;
+  background: #000;
 }
