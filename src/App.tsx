@@ -6,7 +6,7 @@ import { apiGitHub } from './infra/github'
 function App() {
 
   const [repos, setRepos] = useState<any[]>([])
-  const [repoGridPageIndex, setRepoGridPageIndex] = useState<any>(1)
+  const [repoGridPageIndex, setRepoGridPageIndex] = useState<any>(0)
   const [certifications, setCertifications] = useState<any[]>([])
 
   useEffect(() => {
@@ -118,7 +118,7 @@ function App() {
       <section>
         <div className='repos'>
           <div className='repo-grid'>
-            {repos.slice(0 * repoGridPageIndex, 6 * repoGridPageIndex).map((repo) => (
+            {repos.slice(repoGridPageIndex * 6, 6 * (repoGridPageIndex + 1)).map((repo) => (
               <div className='repo-card'>
                 <div className='repo-card__content'>
                   <div className='repo-card__image'>
@@ -145,8 +145,11 @@ function App() {
 
           </div>
           <div className='repo-grid__options'>
-            <button onClick={() => handleNext()} >{'<-'}</button>
-            <button onClick={() => handlePrev()} >{'->'}</button>
+            <button onClick={() => handlePrev()} >{'<-'}</button>
+            <div>
+              {repoGridPageIndex}
+            </div>
+            <button onClick={() => handleNext()} >{'->'}</button>
           </div>
         </div>
       </section>
