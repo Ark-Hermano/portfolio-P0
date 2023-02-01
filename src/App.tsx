@@ -9,6 +9,21 @@ function App() {
   const [repos, setRepos] = useState<any[]>([])
   const [repoGridPageIndex, setRepoGridPageIndex] = useState<any>(0)
   const [certifications, setCertifications] = useState<any[]>([])
+  const linguages = [
+    {
+      name: 'Javascript', frameworks: [{
+        name: 'React',
+      },
+      {
+        name: 'React Native',
+      },
+      {
+        name: 'NextJS'
+      }]
+    },
+    { name: 'PHP' },
+  ]
+
 
   useEffect(() => {
 
@@ -162,7 +177,7 @@ function App() {
             </button>
             <div className='page-indexes'>
               {Array.from({ length: repos.length / 6 }, () => '').map((_, index) => (
-                <div className={+ index === repoGridPageIndex ? 'selected index' : 'index'}>
+                <div onClick={() => setRepoGridPageIndex(index)} className={index === repoGridPageIndex ? 'selected index' : 'index'}>
                   <span>{index + 1}</span>
                 </div>
               ))}
