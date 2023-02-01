@@ -154,3 +154,8 @@ section .repos .repo-grid .repo-card:hover {
 section .repos .repo-grid .repo-card {
   transition: 0.5s;
 }
+
+h2.title {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
