@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
 
     const getData = async () => {
-      const { data } = await apiGitHub.get(`/users/${'Ark-Hermano'}/repos`)
+      const { data } = await apiGitHub.get(`/users/${import.meta.env.VITE_API_GITHUB_ACCOUNT_NAME}/repos`)
       data.shift()
       setRepos(data.filter((repo: any) => !repo.private))
 
@@ -112,10 +112,16 @@ function App() {
             {repos.map((repo) => (
               <div className='repo-card'>
                 <div className='repo-card__content'>
-                  <a target={'_blank'} href={repo.html_url}>
-                    <div className='repo-card__image'></div>
-                    <div className='repo-card__name'>{repo.name}</div>
-                  </a>
+                  <div className='repo-card__image'>
+                    <a target={'_blank'} href={repo.html_url}>
+                      <img src={'./projects/smiley.jpg'} />
+                    </a>
+                  </div>
+                  <div className='repo-card__desc'>
+                    <a target={'_blank'} href={repo.html_url}>
+                      {repo.name}
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
