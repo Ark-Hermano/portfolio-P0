@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { apiGitHub } from './infra/github'
 import { TbChevronLeft, TbChevronRight } from 'react-icons/tb';
-
+import { BiBookAdd } from 'react-icons/bi';
 function App() {
 
   const [repos, setRepos] = useState<any[]>([])
@@ -19,9 +19,9 @@ function App() {
 
 
       setCertifications([
-        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
-        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
-        { name: "curso concentração", skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } }
+        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
+        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } },
+        { name: "curso concentração", credential: 'qA12Yx_#12', skill: "se concentrar", created_at: "2022-10-12", foundation: { name: "empresa name" } }
       ])
     }
 
@@ -126,6 +126,9 @@ function App() {
 
       <section>
         <div className='repos'>
+          <div className='head'>
+            <h1>Projetos</h1>
+          </div>
           <div className='repo-grid'>
             {repos.slice(repoGridPageIndex * 6, 6 * (repoGridPageIndex + 1)).map((repo) => (
               <div className='repo-card'>
@@ -173,17 +176,41 @@ function App() {
 
       <section>
         <div className='certifications'>
+          <div className='head'>
+            <h1>Cursos</h1>
+          </div>
+
           <div className='certification-grid'>
             {certifications.map((certification) => (
               <div className='certification-card'>
                 <div className='certification-card__content'>
-                  <a target={'_blank'} href={certification.html_url}>
-                    <div className='certification-card__image'></div>
-                    <div className='certification-card__name'>{certification.name}</div>
-                    <div className='certification-card__skill'>{certification.skill}</div>
-                    <div className='certification-card__date'>{certification.created_at}</div>
-                    <div className='certification-card__foundation'>{certification.foundation.name}</div>
-                  </a>
+                  <div className='certification-card__image'>
+                    <img src="./courses/alura.jpeg" />
+                  </div>
+                  <div className='certification-card__body'>
+                    <div className='certification-card__name'>
+                      {certification.name}
+                    </div>
+                    <div className='certification-card__foundation'>
+                      {certification.foundation.name}
+                    </div>
+                    <div className='certification-card__date'>
+                      Verificação emitida em {certification.created_at}
+                    </div>
+                    <div className='certification-card__credential'>
+                      Código da credencial {certification.credential}
+                    </div>
+                    <div className='certification-card__show__credential'>
+                      <a href=''>
+                        <span>Exibir credencial</span>
+                        <div className='anchor-icon'>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+                            <path d="M15 1v6h-2V4.41L7.41 10 6 8.59 11.59 3H9V1zm-4 10a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h2V3H5a3 3 0 00-3 3v5a3 3 0 003 3h5a3 3 0 003-3V9h-2z"></path>
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
